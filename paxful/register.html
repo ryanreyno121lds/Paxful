@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: arial;
+            transition: all .5s ease-in-out;
+        }
+        body{
+            background-color: black;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .top div{
+            width: max-content;
+        }
+        .top button{
+            background: transparent;
+            font-size: 30px;
+            border: 0;
+            width: 50px;
+            height: 50px;
+        }
+        .top :nth-child(1){
+            margin-left: 10px;
+        }
+        .top :nth-child(3){
+            margin-right: 20px;
+        }
+        .top :nth-child(3) button{
+            font-size: 30px;
+        }
+        .top :nth-child(2){
+            font-size: 15px;
+            font-weight: bold;
+        }
+        div{
+            width: 100%;
+        }
+        .body{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .animate{
+            width: 80%;
+            height: 5px;
+            background-color: grey;
+            border-radius: 10px;
+            display: flex;
+            justify-content: start;
+            margin-bottom: 30px;
+        }
+        .loader{
+            width: 30%;
+            background-color: rgb(2,228,61);
+            height: 100%;
+            border-radius: 10px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100%;
+            scroll-snap-align: center;
+        }
+        form div{
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        form input{
+            min-width: 75%;
+            height: 50px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background: rgb(36,36,36);
+            border: 0;
+            text-align: start;
+            padding-left: 20px;
+        }
+        form .a{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .b{
+            display: flex;
+            overflow-x: hidden;
+            min-height: max-content;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+        }
+        .buttons{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: max-content;
+            margin-right: 30px;
+        }
+        .buttons button{
+            width: 100px;
+            height: 40px;
+            border-radius: 50px;
+            background-color: rgb(2,228,61);
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
+        }
+        button#btnb{
+            display: none;
+        }
+        .dark{
+            z-index: 10;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.082);
+            backdrop-filter: blur(10px);
+            transform: translateY(-10000px);
+        }
+        center{
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            transform: translateY(1000px);
+            z-index: 99;
+        }
+        .linkcard{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(17,17,17);
+            width: 98%;
+            padding: 10px 0 50px 0;
+            border-radius: 50px 50px 0 0;
+            height: 200px;
+        }
+        .dash{
+            width: 70px;
+            margin-bottom: 30px;
+            height: 8px;
+            border-radius: 10px;
+            background-color: rgb(116, 115, 115);
+        }
+        .linkcard :nth-child(2){
+           font-size: 20px;
+           font-weight: bold;
+           margin-bottom: 10px; 
+        }
+        .linkcard :nth-child(3){
+            width: 70%;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .linkcard :nth-child(4) button{
+            background-color: rgb(2,228,61);
+            width: 200px;
+            height: 50px;
+            border-radius: 100px;
+            font-size: 20px;
+            color: rgb(17,17,17);
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 0;
+        }
+        .linkcard a{
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paxful</title>
+</head>
+<body>
+    <div class="top">
+        <div class=""><button  onclick="window.location='./index.html'"><img src="./arrow-back.svg" alt=""></button></div>
+        <div class="">Register New Account</div>
+        <div class=""><button onclick="window.location='./index.html'">&Cross;</button></div>
+    </div>
+    <div class="body">
+        <div class="animate">
+            <div class="loader"></div>
+        </div>
+        <div class="b">
+            <form action="" id="forma">
+                <div class="a">
+                    Enter your personal details
+                </div>
+                <input class="input1" type="text" name="" id="" placeholder="First name" required>
+                <input class="input2" type="text" name="" id="" placeholder="Last name" required>
+                <input class="input3" type="number" name="" id="" maxlength="2" placeholder="Age" required>
+            </form>
+            <form action="" id="formb">
+                <div class="a">
+                    Enter your Email and Password
+                </div>
+                <input class="input1" type="mail" name="" id="" placeholder="Email address" required>
+                <input class="input2" type="text" name="" id="" placeholder="Password" required>
+                <input class="input3" type="text" name="" id="" placeholder="Confirm password" required>
+            </form>
+        </div>
+        <div class="buttons">
+            <button id="btna">Continue</button>
+            <button id="btnb">Continue</button>
+        </div>
+    </div>
+        <div class="dark"></div><center>
+        <div class="linkcard">
+            <div class="dash"></div>
+            <div class="">Link Bank Card</div>
+            <div class="">For ease of access to assets please link your bank card</div>
+            <div class="">
+                <button onclick="window.location='./linkcard.html'">Link card</button>
+            </div>
+            <div class="">
+                <a href="">skip</a>
+            </div>
+        </div></center>
+<script>
+    let buttona = document.getElementById("btna");
+    let buttonb = document.getElementById("btnb");
+    let inputa1 = document.querySelector("#forma .input1");
+    let inputa2 = document.querySelector("#forma .input2");
+    let inputa3 = document.querySelector("#forma .input3");
+    let inputb1 = document.querySelector("#formb .input1");
+    let inputb2 = document.querySelector("#formb .input2");
+    let inputb3 = document.querySelector("#formb .input3");
+    let forma = document.getElementById("forma");
+    let formb = document.getElementById("formb");
+    let loader = document.querySelector(".loader");
+    let blankblur = document.querySelector(".dark");
+    let linkcard = document.querySelector("center");
+
+    buttona.addEventListener('click',()=>{
+        if (inputa1.value != '' && inputa2.value != '' && inputa3.value != ''){
+            window.location = "#formb"
+            buttona.style.display = 'none'
+            buttonb.style.display = 'block'
+            loader.style.width = '70%'
+            localStorage.setItem('paxfulfirstname', inputa1.value);
+            localStorage.setItem('paxfullastname', inputa2.value);
+            localStorage.setItem('paxfulage', inputa3.value);
+        }
+        else{
+            alert('Please fill the required space');
+        }
+    });
+    buttonb.addEventListener('click',()=>{
+        if (inputb2.value != inputb3.value){
+            alert('Please check your password it doesnt align')
+        }
+        else  if (inputb1.value != '' && inputb2.value != '' && inputb3.value != ''){
+            buttona.style.display = 'none'
+            buttonb.style.display = 'none'
+            loader.style.width = '100%';
+            blankblur.style.transform = 'translatey(0px)';
+            linkcard.style.transform = 'translatey(0px)';
+            localStorage.setItem('paxfulemail', inputb1.value);
+            localStorage.setItem('paxfulpassword', inputb2.value);
+            localStorage.setItem('paxfulconfirmpassword', inputb3.value);
+        }
+        else{
+            alert('Please fill the required space');
+        }
+    });
+</script>
+</body>
+</html>

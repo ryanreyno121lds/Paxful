@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            transition: all .3s ease-in;
+            font-family: arial;
+            color: white;
+        }
+        body{
+            background-color: black;
+            height: 100vh;
+            width: 100%;
+        }
+        .top{
+            margin-left: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .top button{
+            width: 30px;
+            background: url(./arrow-left.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 0;
+            height: 30px;
+        }
+        .a,.b,.d{
+            margin-left: 30px;
+        }
+        .a{
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .b{
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .c{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            width: 80%;
+            text-align: start;
+            padding: 10px;
+            background: rgb(17,17,17);
+            border: 1px solid rgb(53,53,53);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .d{
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .e{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            font-size: 15px;
+            color: rgb(105, 105, 105);
+        }
+        .f{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .f button{
+            width: 70%;
+            height: 50px;
+            border-radius: 100px;
+            background: rgb(17,17,17);
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid rgb(53,53,53);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paxful</title>
+</head>
+<body>
+    <div class="top">
+        <button onclick="window.location='./register.html'"></button>
+    </div>
+    <div class="a">
+        <p id="mail"></p>
+    </div>
+    <div class="b">
+        <p id="user"></p>
+    </div>
+    <center>
+        <div class="c">
+            <div class="message">
+                Share to friends and get free $15 worth of bitcoin
+            </div>
+            <div class="img">
+                <img src="./gift-reward-ecommerce-svgrepo-com.svg" width="50" height="50" alt="">
+            </div>
+        </div>
+    </center>
+    <div class="d">
+        Payment Methods
+    </div>
+    <div class="e">
+        No records yet
+    </div>
+    <div class="f">
+        <button onclick="window.location='./payment.html'">
+            Add payment method
+        </button>
+    </div>
+<script>
+    let useronpage = document.querySelector('.b p#user');
+    let mailonpage = document.querySelector('.a p#mail');
+    let userfirstnameondatabase = localStorage.getItem('paxfulfirstname');
+    let userlastnameondatabase = localStorage.getItem('paxfullastname');
+    let mailondatabase = localStorage.getItem('paxfulemail');
+    window.addEventListener('load',()=>{
+        useronpage.innerHTML = userfirstnameondatabase + ' ' + userlastnameondatabase;
+        mailonpage.innerHTML = mailondatabase;
+    })
+</script>
+</body>
+</html>

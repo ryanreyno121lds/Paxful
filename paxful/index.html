@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            transition: all .4s ease-in-out;
+            color: white;
+        }
+        body{
+            height: 100vh;
+            background-color: black;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+        .top{
+            font-size: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: max-content;
+        }
+        div{
+            width: 100%;
+        }
+        .left{
+            display: flex;
+        }
+        .left span{
+            margin-left: 10px;
+        }
+        .body{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 70px;
+        }
+        .first{
+            font-size: 30px;
+            font-weight: bold;
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+        .first div{
+            margin-top: 10px;
+        }
+        .second {
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .buttons button{
+            width: 70%;
+            height: 50px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            color: black;
+            font-size: 15px;
+            border: 0;
+        }
+        .buttons :nth-child(1){
+            background: rgb(2, 228, 61);
+        }
+        .buttons :nth-child(2){
+            background: rgb(17, 17, 17);
+            color: white;
+            border: 0;
+        }
+        .link{
+            display: flex;
+            justify-content: center;
+        }
+        .link a{
+            font-size: 15px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .bigimage img{
+            margin-bottom: -40px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paxful</title>
+</head>
+<body>
+    <div class="top">
+        <div class="left">
+            <img src="./crypto-svgrepo-com.svg" width="30px" alt="">
+            <span>paxful</span>
+        </div>
+    </div>
+    <div class="body">
+        <center>
+        <div class="bigimage">
+            <img src="./modern-world-map_275806-275.png" width="80%" alt="">
+        </div></center>
+        <div class="first">
+            <div class="a">
+                The World's
+            </div>
+            <div class="b">
+                P2P Marketplace
+            </div>
+        </div>
+        <div class="second">
+            <div class="a">
+                By building a financial system for the 
+            </div>
+            <div class="b">
+                100%, not just the 1%
+            </div>
+        </div>
+        <div class="buttons">
+            <button onclick="window.location='./register.html'">Create an account</button>
+            <button>Sign in</button>
+        </div>
+        <div class="link">
+            <a href="">Explore as guest</a>
+        </div>
+    </div>
+</body>
+</html>
